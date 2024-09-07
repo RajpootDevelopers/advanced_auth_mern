@@ -5,8 +5,7 @@
   "main": "backend/index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon index.js",
-    "start": "cross-env NODE_ENV=production node index.js",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    "start": "cross-env NODE_ENV=production node index.js"
   },
   "keywords": [],
   "author": "afaq ahmad",
