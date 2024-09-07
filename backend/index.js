@@ -12,8 +12,12 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 const __dirname = path.resolve();
+const allowedOrigins = [
+    'https://advanced-auth-mern-dyw1-7gcu12mim-afaq-ahmads-projects-571f8223.vercel.app',
+    'https://advanced-auth-mern-dyw1.vercel.app'
+];
 
-app.use(cors({ origin: "https://advanced-auth-mern-dyw1.vercel.app", credentials: true }))
+app.use(cors({ origin: "*", credentials: true }))
 app.use(express.json());
 app.use(cookieParser())
 app.use("/api/auth", authRoutes)
