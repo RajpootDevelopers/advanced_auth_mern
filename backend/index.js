@@ -17,7 +17,18 @@ const allowedOrigins = [
     'https://advanced-auth-mern-dyw1.vercel.app'
 ];
 
-app.use(cors({ origin: "*", credentials: true }))
+app.use(cors({
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true // If you need to send cookies or authentication tokens
+}));
+
+// app.use(cors({ origin: "*", credentials: true }))
 app.use(express.json());
 app.use(cookieParser())
 app.use("/api/auth", authRoutes)
